@@ -1,4 +1,4 @@
-#setwd("D:\\Dropbox\\seqblock\\Survey Framework")
+
 library(curl)
 library(shiny)
 library(rsconnect)
@@ -28,10 +28,10 @@ randstring <- function(n=1, length=12){
   return(randomString)
 }
 
-results <<- rep("", nrow(Qlist)+6)
-names(results)  <<- c("pid", "vote2", "reg", "mot", "pow", "res", "treat", "outcome")
+results <- rep("", nrow(Qlist)+6)
+names(results) <- c("pid", "vote2", "reg", "mot", "pow", "res", "treat", "outcome")
 
-shinyServer(function(input, output) {
+server <- function(input, output) {
   
   
   option.list <- reactive({
@@ -220,7 +220,7 @@ shinyServer(function(input, output) {
     }
     
   })    
-})
+}
 
 
 ### For testing this, look at the sdata.RData object in the seqblock main directory, not the one in Survey Framework
